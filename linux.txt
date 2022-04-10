@@ -517,7 +517,27 @@ bg %1								=> bg (background) %1 (id) / move to background (background) / now 
 jobs								=> [1]+ Running 		gedit &  (background running) / "&" means it is in background process 
 gedit &								=> run as a background process (background)
 
+Process Kill 💭️💭️💭️
 
+kill								=> send a signal to a process
+kill -l 							=> list the available signals (default signal for kill is => 15) SIGTERM )
+ps axo comm,pid,uid					=> To see every process with a user-defined format (print the command ,its process id , userid)
+grep 								=> used to search for a string of characters in a specified file
+killall								=> kill processes by name (killall sends a siganl to all processes running any of the specified commands.)
+									=> If no signal name is specified, SIGTERM is sent.
+killall -9 gedit firefox			=> kill gedit and firefox with SIGKILL(signal)
+killall -9 -u kokg gedit firefox	=> Kill only the processes that the specified user owns(kokg)
+
+Example!❗️ 
+
+firefox &							=> open firefox and run in background 
+jobs								=> check processes (output => [1]+  Running      firefox &)
+ps axo comm,pid | grep firefox		=> find firefox pid in commands using grep (output => 6686)
+kill 6686							=> kill the firefox using process id
+
+firefox &							=> creating firefox in background
+gedit & 							=> creating gedit in background
+killall -9 gedit firefox			=> kill gedit and firefox with SIGKILL(signal)
 
 
 
